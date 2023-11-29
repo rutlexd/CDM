@@ -1,6 +1,6 @@
 
 #### C++  compile for library
-```$ g++ -shared -o main.so main.cpp ```
+```$ g++ -shared -o main.so main.cpp -fPIC```
 
 #### JS bush
 
