@@ -1,11 +1,12 @@
 const ffi = require('ffi-napi');
 
-const myLibrary = ffi.Library('./main', {
-    'myFunction': ['int', ['int', 'int']],
-    'hui': ['char', ['void']]
+const cppLibrary = ffi.Library('./main', {
+    'showName': ['void', ['string']],
+    
 });
 
+let name = "Sergey";
 
+const result = cppLibrary.showName(name);
 
-const result = myLibrary.hui(4);
 console.log(`result: ${result}`);

@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 
-extern "C" {
-  int myFunction(int a, int b) {
-    return a + b;
-  }
+using namespace std;
 
-  char hui() {
-    return 'a';
+extern "C" {
+  
+  void showName(char* name) {
+    cout << name << endl;
   }
+  
 }
