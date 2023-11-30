@@ -1,12 +1,15 @@
-const ffi = require('ffi-napi');
+import express from 'express';
+import sendDataToCpp from './connector.js';
 
-const cppLibrary = ffi.Library('./main', {
-    'showName': ['void', ['string']],
-    
+const PORT = 8080;
+
+const app = express();
+
+app.use(express.json());
+
+app.post('/', (req, res) => {
+    sendDataToCpp(req.body);
+    res.status(200).json('All working');
 });
 
-let name = "Sergey";
-
-const result = cppLibrary.showName(name);
-
-console.log(`result: ${result}`);
+app.listen(PORT, () => console.log('SERVER WORKNG ON PORT: ' + PORT));
