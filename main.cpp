@@ -8,5 +8,5 @@ extern "C" {
   void showName(char* name) {
     cout << name << endl;
   }
-  
+
 }
